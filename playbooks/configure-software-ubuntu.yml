@@ -1,3 +1,6 @@
+- debug:
+    msg: "config for name: {{ username }} home: {{ userhome }}"
+
 - name: Package Installation - Update Apt package cache
   apt:
     update_cache: true
@@ -29,6 +32,8 @@
 - name: Package Installation - System Desktop
   package:
     name: [
+        'compton',
+        'conky',
         'rofi',
         'nitrogen',
         'dunst',

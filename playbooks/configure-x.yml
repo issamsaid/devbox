@@ -1,6 +1,23 @@
 - name: X configuration - Copy "{{ userhome }}/.xinitrc"
   become_user: "{{ username }}"
   copy:
-    src: "files/configs/xinitrc"
+    src: "files/xinitrc"
     dest: "{{ userhome }}/.xinitrc"
     mode: '0755'
+
+- name: X configuration - Copy "{{ userhome }}/.Xresources"
+  become_user: "{{ username }}"
+  copy:
+    src: "files/Xresources"
+    dest: "{{ userhome }}/.Xresources"
+    mode: '0755'
+
+- name: update dotbashrc
+  blockinfile:
+    path: "{{ userhome }}/.bashrc"
+    block: |
+      if [ -z "$DISPLAY" -a "$XDG_VTNR" -eq 1 ] ; then
+        if [ "$HOSTNAME"=="{{ hostname }}" ] ; then
+          startx
+        fi
+      fi

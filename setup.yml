@@ -1,9 +1,10 @@
 - hosts: localhost
-  become: true
+  become: yes
 
   vars:
-    username: "{{ ansible_env.USER }}" 
-    userhome: "{{ ansible_env.HOME }}"
+    username: "{{ username }}" 
+    userhome: "{{ userhome }}"
+    hostname: "{{ hostname }}"
 
   tasks:
   - include: playbooks/configure-software-ubuntu.yml
