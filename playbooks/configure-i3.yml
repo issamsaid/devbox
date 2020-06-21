@@ -1,14 +1,11 @@
-- name: i3 Configuration - Create .i3 directory
+- name: i3 Configuration - Copy "{{ userhome }}/.i3"
   become_user: "{{ username }}"
-  file:
-    path: "{{ userhome }}/.i3"
-    state: directory
-
-- name: i3 Configuration - Copy "{{ userhome }}/.i3/config"
-  become_user: "{{ username }}"
-  copy:
-    src: "files/i3/config"
-    dest: "{{ userhome }}/.i3/config"
+  synchronize:
+    src: "files/i3/"
+    dest: "{{ userhome }}/.i3/"
+    recursive: true
+    
+#directory_mode: yes
 
 - name: i3 Configuration - Copy "{{ userhome }}/.config/compton.conf"
   become_user: "{{ username }}"
@@ -34,11 +31,11 @@
     path: "{{ userhome }}/.config/i3blocks"
     state: directory
 
-- name: i3 Configuration - Copy "{{ userhome }}/.config/i3blocks/config"
+- name: i3 Configuration - Copy "{{ userhome }}/.config/i3blocks"
   become_user: "{{ username }}"
   copy:
-    src: "files/i3blocks/config"
-    dest: "{{ userhome }}/.config/i3blocks/config"
+    src: "files/i3blocks/"
+    dest: "{{ userhome }}/.config/i3blocks/"
 
 - name: i3 Configuration - Create rofi directory
   become_user: "{{ username }}"

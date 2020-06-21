@@ -4,22 +4,22 @@ separator_block_width=15
 markup=none
 
 [myi3temp]
-command=$HOME/opt/scripts/myi3blocks/myi3temp
+command=$HOME/.config/i3blocks/bin/myi3temp
 label=
 interval=5
 
 [myi3memory]
-command=$HOME/opt/scripts/myi3blocks/myi3memory
+command=$HOME/.config/i3blocks/bin/myi3memory
 label=
 interval=5
 
 [myi3load]
-command=$HOME/opt/scripts/myi3blocks/myi3load
+command=$HOME/.config/i3blocks/bin/myi3load
 label=
 interval=5
 
 [myi3battery]
-command=$HOME/opt/scripts/myi3blocks/myi3battery
+command=$HOME/.config/i3blocks/bin/myi3battery
 label=
 instance=0
 interval=10
@@ -30,11 +30,11 @@ color=#33CCFF
 interval=30
 
 [myi3weather-cam]
-command=$HOME/opt/scripts/myi3blocks/myi3weather
+command=$HOME/.config/i3blocks/bin/myi3weather
 label=ℂ
 instance=2653941
 interval=600
 
 [time]
-command=$HOME/opt/scripts/myi3blocks/myi3date
+command=$HOME/.config/i3blocks/bin/myi3date
 interval=5
