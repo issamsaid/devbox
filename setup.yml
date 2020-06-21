@@ -1,0 +1,13 @@
+- hosts: localhost
+  become: true
+
+  vars:
+    username: "{{ ansible_env.USER }}" 
+    userhome: "{{ ansible_env.HOME }}"
+
+  tasks:
+  - include: playbooks/configure-software-ubuntu.yml
+    when: ansible_facts["os_family"] == "Debian"
+  - include: playbooks/configure-user.yml
+  - include: playbooks/configure-i3.yml
+  - include: playbooks/configure-x.yml

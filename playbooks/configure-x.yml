@@ -1,0 +1,6 @@
+- name: X configuration - Copy "{{ userhome }}/.xinitrc"
+  become_user: "{{ username }}"
+  copy:
+    src: "files/configs/xinitrc"
+    dest: "{{ userhome }}/.xinitrc"
+    mode: '0755'

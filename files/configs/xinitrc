@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+xmodmap ~/.Xmodmap #(note: this is for my custom key assignments)
+xrdb -merge ~/.Xresources #(to load ~/.Xresources if you use it)
+dbus-update-activation-environment DISPLAY XAUTHORITY
+exec i3 #(needs to be the last line)

@@ -1,0 +1,19 @@
+- name: User Configuration - Add sudoers entry for "{{ username }}"
+  lineinfile:
+    path: "/etc/sudoers.d/{{ username }}"
+    line: "{{ username }} ALL=(ALL) NOPASSWD: ALL"
+    create: yes
+    mode: "0640"
+
+- name: User Configuration - Copy tmux configuration
+  copy:
+    src: "files/configs/tmux.conf"
+    dest: "{{ userhome }}/.tmux.conf"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: User Configuration - Copy pictures
+  become_user: "{{ username }}"
+  copy:
+    src: files/pictures/
+    dest: "/data/backgrounds/"
