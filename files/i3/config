@@ -143,10 +143,10 @@ bindsym $mod+Shift+9 move container to workspace number 9 $tag9
 bindsym $mod+Shift+0 move container to workspace $tag0
 
 # rename workspace
-bindsym $mod+t exec ~/.i3/bin/tags num
-bindsym $mod+Shift+t exec ~/.i3/bin/tags
-bindsym $mod+n exec ~/.i3/bin/tags temp
-bindsym $mod+Shift+n exec ~/.i3/bin/tags temp-move
+bindsym $mod+t exec ~/.config/i3/bin/tags num
+bindsym $mod+Shift+t exec ~/.config/i3/bin/tags
+bindsym $mod+n exec ~/.config/i3/bin/tags temp
+bindsym $mod+Shift+n exec ~/.config/i3/bin/tags temp-move
 # reminder
 bindsym $mod+apostrophe exec i3-input -F "exec sh -c 'sleep %s && notify-send Remember-%ss-ago!'" -P 'Remind after: '
 # [move to] new workspace
@@ -156,8 +156,8 @@ bindsym $mod+Shift+i exec i3-input -F "move container to workspace \"%s\"" -P 'M
 bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark name: '
 bindsym $mod+Shift+m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
 # copy to register ($mod+~, $mod+Shift+~)
-bindcode $mod+49 exec ~/.i3/bin/x-register
-bindcode $mod+Shift+49 exec ~/.i3/bin/x-register copy
+bindcode $mod+49 exec ~/.config/i3/bin/x-register
+bindcode $mod+Shift+49 exec ~/.config/i3/bin/x-register copy
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -166,9 +166,9 @@ bindsym $mod+Shift+r restart
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 #bindsym $mod+Shift+e exit
 mode "(l)ock (s)leep (h)ybernate (r)eboot (p)oweroff (e)xit-i3" {
-        bindsym l exec ~/.i3/bin/i3lock.sh; mode "default"
-        bindsym s exec ~/.i3/bin/i3lock.sh && systemctl suspend; mode "default"
-        bindsym h exec ~/.i3/bin/i3lock.sh && systemctl hibernate; mode "default"
+        bindsym l exec ~/.config/i3/bin/i3lock.sh; mode "default"
+        bindsym s exec ~/.config/i3/bin/i3lock.sh && systemctl suspend; mode "default"
+        bindsym h exec ~/.config/i3/bin/i3lock.sh && systemctl hibernate; mode "default"
         bindsym p exec systemctl poweroff; mode "default"
         bindsym r exec systemctl reboot; mode "default"
         bindsym e exec --no-startup-id i3-msg exit; mode "default"
@@ -257,9 +257,9 @@ bindsym $mod+r mode "resize"
 bindsym $mod+b bar mode toggle
 bar {
         i3bar_command /usr/bin/i3bar
-        #status_command i3blocks -c ~/.i3/i3blocks.conf
-        # status_command i3status -c ~/.i3/i3status.conf
-        status_command ~/.i3/bin/conky-i3bar
+        #status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        # status_command i3status -c ~/.config/i3/i3status.conf
+        status_command ~/.config/i3/bin/conky-i3bar
         font pango:DejaVu Sans Mono 12
         tray_output primary
         position top
@@ -297,25 +297,25 @@ set $ce     #ceecee
 #client.urgent               $yw     $yw         $tx     $id
 
 # start application
-exec --no-startup-id feh --bg-fill ~/.i3/colors.png
-exec --no-startup-id conky -d -c ~/.i3/conky-right
-exec --no-startup-id conky -d -c ~/.i3/conky-left
-#exec --no-startup-id conky -d -c ~/.i3/conky-bottom
-exec --no-startup-id ~/.i3/bin/bar
-exec --no-startup-id ~/.i3/bin/xinput-fix
+exec --no-startup-id feh --bg-fill ~/.config/i3/colors.png
+exec --no-startup-id conky -d -c ~/.config/i3/conky-right
+exec --no-startup-id conky -d -c ~/.config/i3/conky-left
+#exec --no-startup-id conky -d -c ~/.config/i3/conky-bottom
+exec --no-startup-id ~/.config/i3/bin/bar
+exec --no-startup-id ~/.config/i3/bin/xinput-fix
 exec --no-startup-id dunst
 exec --no-startup-id ibus-daemon --xim -d -r
 exec --no-startup-id dconf write /desktop/ibus/general/engines-order "['xkb:us::eng', 'Unikey']"
-exec --no-startup-id xautolock -time 5 -locker '~/.i3/bin/i3lock.sh'
-exec --no-startup-id ~/.i3/bin/redshift
+exec --no-startup-id xautolock -time 5 -locker '~/.config/i3/bin/i3lock.sh'
+exec --no-startup-id ~/.config/i3/bin/redshift
 exec --no-startup-id openpgp-applet
 # exec --no-startup-id setxkbmap -layout us -option ctrl:nocaps
 
 # lock screen
-bindsym --release XF86ScreenSaver exec ~/.i3/bin/i3lock.sh
-bindsym --release $mod+Delete exec ~/.i3/bin/i3lock.sh
-bindsym --release $mod+Mod1+l exec ~/.i3/bin/i3lock.sh
-bindsym --release control+Mod1+Delete exec ~/.i3/bin/i3lock.sh
+bindsym --release XF86ScreenSaver exec ~/.config/i3/bin/i3lock.sh
+bindsym --release $mod+Delete exec ~/.config/i3/bin/i3lock.sh
+bindsym --release $mod+Mod1+l exec ~/.config/i3/bin/i3lock.sh
+bindsym --release control+Mod1+Delete exec ~/.config/i3/bin/i3lock.sh
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 3%+
@@ -327,15 +327,15 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
 # Touchpad controls
-bindsym --release XF86Sleep exec ~/.i3/bin/i3lock.sh && systemctl suspend
+bindsym --release XF86Sleep exec ~/.config/i3/bin/i3lock.sh && systemctl suspend
 
 # Screenshot
 bindsym Print exec scrot 'scrot_%Y-%m-%d-%T_$wx$h.png' -e 'mv $f /tmp/'
 bindsym $mod+Print exec gnome-screenshot -i -a
 
 # Toggle fastly terminal
-bindsym $mod+Escape exec ~/.i3/bin/fn esc
-bindsym $mod+F12 exec ~/.i3/bin/fn 12
+bindsym $mod+Escape exec ~/.config/i3/bin/fn esc
+bindsym $mod+F12 exec ~/.config/i3/bin/fn 12
 
 # More workspaces
 bindsym $mod+F1 workspace number 11 F1

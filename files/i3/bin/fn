@@ -1,6 +1,6 @@
 #!/bin/bash
 # Giap Tran <txgvnn@gmail.com>
-#cat >> .i3/config <<EOF
+#cat >> .config/i3/config <<EOF
 #bindsym $mod+F1 exec fn 1
 #bindsym $mod+Fn exec fn n
 #EOF
@@ -16,7 +16,7 @@ _fn(){
 	if [ ! -f "$pidfile" ] || [ ! -d "/proc/$(cat $pidfile)" ]; then
 		echo "${name}" > "$TMP"
 		# create new terminal and move to scatchpad
-		i3-sensible-terminal -e ~/.i3/bin/fn &
+		i3-sensible-terminal -e ~/.config/i3/bin/fn &
 		echo "$!" > "$pidfile"
 		sleep 1
 	fi

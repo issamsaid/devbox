@@ -2,7 +2,7 @@
   become_user: "{{ username }}"
   synchronize:
     src: "files/i3/"
-    dest: "{{ userhome }}/.i3/"
+    dest: "{{ userhome }}/.config/i3/"
     recursive: true
     
 #directory_mode: yes
