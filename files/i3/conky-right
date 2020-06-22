@@ -60,25 +60,3 @@ ${alignr} < ${fs_bar 5,120 /home} > --+
 ${alignr} < $swapperc% - $swap/$swapmax > swap --+
 ${alignr} < ${swapbar 5,120} > --+     
 
-${alignr}${color}HACKER NEWS *${color1}
-
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 0}  (1
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 1}  (2
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 2}  (3
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 3}  (4
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 4}  (5
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 5}  (6
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 6}  (7
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 7}  (8
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 8}  (9
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 9} (10
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 10} (11
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 11} (12
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 12} (13
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 13} (14
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 14} (15
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 15} (16
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 16} (17
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 17} (18
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 18} (19
-${alignr} ${rss https://news.ycombinator.com/rss 30 item_title 19} (20

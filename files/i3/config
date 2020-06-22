@@ -42,6 +42,9 @@ bindsym $mod+Return exec urxvt #i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# kill focused workspace
+#bindsym $mod+q focus parent,kill
+
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -362,23 +365,25 @@ bindsym XF86Launch1 exec xset dpms force off
 assign [class="keepassxc"] $tag0
 
 ## shortcut
-# emacs
-bindsym $mod+Mod1+i exec code-oss
+# vscode
+bindsym $mod+Mod1+c exec code-oss
 # keepassx
 bindsym $mod+Mod1+k exec keepassxc
-# email
-bindsym $mod+Mod1+e exec thunderbird
 # browser
-bindsym $mod+Mod1+b exec chromium-browser --disable-gpu --temp-profile
-bindsym $mod+Mod1+Shift+b exec chromium-browser --disable-gpu --temp-profile --incognito
+set $browser chromium-browser --disable-gpu --temp-profile
+bindsym $mod+Mod1+b exec $browser
+bindsym $mod+Mod1+Shift+b exec $browser --incognito
+bindsym $mod+Mod1+m exec $browser --new-window --app=https://outlook.office.com/mail/inbox
+bindsym $mod+Mod1+s exec $browser --new-window --app=https://app.slack.com/client/T04SYRAP3
+bindsym $mod+Mod1+t exec $browser --new-window --app=https://teams.microsoft.com
 # gimp
 bindsym $mod+Mod1+p exec gimp
-# wicd
-bindsym $mod+Mod1+w exec wicd-client -n
 # explore
 bindsym $mod+Mod1+r exec /usr/bin/rxvt -e ranger
 
 bindcode $mod+90 [title="YouTube"] scratchpad show
 for_window [title="YouTube"] sticky enable
+
+for_window [class="Chromium"] move container to workspace 2 $tag2
 
 exec i3-msg workspace 1 $tag4
