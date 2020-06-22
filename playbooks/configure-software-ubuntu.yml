@@ -32,6 +32,9 @@
 - name: Package Installation - System Desktop
   package:
     name: [
+        'rxvt-unicode',
+        'imagemagick',
+        'fonts-font-awesome',
         'feh',
         'compton',
         'conky',

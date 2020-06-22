@@ -1,4 +1,4 @@
-Xft.dpi:	96
+Xft.dpi:        100	
 Xft.antialias:	1
 Xft.rgba:	rgb
 Xft.autohint:	0
@@ -6,9 +6,9 @@ Xft.lcdfilter:	lcddefault
 Xft.hinting:	1
 Xft.hintstyle:	hintfull
 
-URxvt.font: xft:DejaVu Sans Mono-11
+URxvt.font: xft:DejaVu Sans Mono-16
 Emacs.font: DejaVu Sans Mono-11
-XTerm.vt100.faceName: DejaVu Sans Mono:size=11
+XTerm.vt100.faceName: DejaVu Sans Mono:size=16
 
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry
@@ -28,9 +28,11 @@ URxvt*scrollTtyOutput:           true
 ! URxvt*scrollTtyKeypress:              boolean
 ! URxvt*scrollWithBuffer:               boolean
 ! URxvt*inheritPixmap:                  boolean
-*transparent:                    false
+!*transparent:                    false
+!*shading:                        1
+URxvt.transparent:               true
+URxvt.shading:                   20
 ! URxvt*tintColor:                      color
-*shading:                        1
 ! URxvt*blurRadius:                     HxV
 ! URxvt*fading:                         number
 ! URxvt*fadeColor:                      color
@@ -47,7 +49,7 @@ URxvt*scrollTtyOutput:           true
 ! URxvt*pointerBlank:                   boolean
 ! URxvt.keysym.Control-0x2b: perl:font-size:increase
 ! URxvt.keysym.Control-0x2d: perl:font-size:decrease
-URxvt*background:                     #1a1a1a
+URxvt*background:                     [95]#000000
 URxvt*foreground:                     #c0b18b
 xterm*background:                     #1f1f1f
 xterm*foreground:                     #c0b18b
