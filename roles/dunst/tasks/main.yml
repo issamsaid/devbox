@@ -1,0 +1,20 @@
+#
+# ansible role to setup config dunst:
+#
+---
+- name: dunst configuration - create dunst directory
+  become_user: "{{ username }}"
+  file:
+    path: "{{ userhome }}/.config/dunst"
+    state: directory
+  tags:
+    - dunst
+
+- name: dunst configuration - copy config file
+  become_user: "{{ username }}"
+  template:
+    src: dunstrc.j2
+    dest: "{{ userhome }}/.config/dunst/dunstrc"
+    mode: '0644'
+  tags:
+    - dunst

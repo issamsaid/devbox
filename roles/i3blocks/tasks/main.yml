@@ -1,0 +1,72 @@
+#
+# ansible role to setup config i3blocks:
+#
+---
+- name: i3blocks Configuration - create i3blocks directory
+  become_user: "{{ username }}"
+  file:
+    path: "{{ userhome }}/.config/i3blocks"
+    state: directory
+  tags:
+    - i3blocks
+
+- name: i3blocks configuration - copy binaries
+  become_user: "{{ username }}"
+  synchronize:
+    src: bin/
+    dest: "{{ userhome }}/.config/i3blocks/bin/"
+    recursive: true
+  tags:
+    - i3blocks
+
+- name: i3blocks configuration - copy config file
+  become_user: "{{ username }}"
+  template:
+    src: config.j2
+    dest: "{{ userhome }}/.config/i3blocks/config"
+    mode: '0644'
+  tags:
+    - i3blocks
+
+
+# - name: i3 Configuration - Copy "{{ userhome }}/.config/compton.conf"
+#   become_user: "{{ username }}"
+#   copy:
+#     src: "files/compton.conf"
+#     dest: "{{ userhome }}/.config/compton.conf"
+
+# - name: i3 Configuration - Create dunst directory
+#   become_user: "{{ username }}"
+#   file:
+#     path: "{{ userhome }}/.config/dunst"
+#     state: directory
+
+# - name: i3 Configuration - Copy "{{ userhome }}/.config/dunst/dunstrc"
+#   become_user: "{{ username }}"
+#   copy:
+#     src: "files/dunst/dunstrc"
+#     dest: "{{ userhome }}/.config/dunst/dunstrc"
+
+# - name: i3 Configuration - Create i3blocks directory
+#   become_user: "{{ username }}"
+#   file:
+#     path: "{{ userhome }}/.config/i3blocks"
+#     state: directory
+
+# - name: i3 Configuration - Copy "{{ userhome }}/.config/i3blocks"
+#   become_user: "{{ username }}"
+#   copy:
+#     src: "files/i3blocks/"
+#     dest: "{{ userhome }}/.config/i3blocks/"
+
+# - name: i3 Configuration - Create rofi directory
+#   become_user: "{{ username }}"
+#   file:
+#     path: "{{ userhome }}/.config/rofi"
+#     state: directory
+
+# - name: i3 Configuration - Copy "{{ userhome }}/.config/rofi/config"
+#   become_user: "{{ username }}"
+#   copy:
+#     src: "files/rofi/config"
+#     dest: "{{ userhome }}/.config/rofi/config"

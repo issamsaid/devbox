@@ -1,16 +1,24 @@
-- name: X configuration - Copy "{{ userhome }}/.xinitrc"
+#
+# ansible role to configure X:
+#
+---
+- name: upload xinitrc
   become_user: "{{ username }}"
-  copy:
-    src: "files/xinitrc"
+  template:
+    src: "templates/xinitrc.j2"
     dest: "{{ userhome }}/.xinitrc"
     mode: '0755'
+  tags:
+    - configuration
 
 - name: X configuration - Copy "{{ userhome }}/.Xresources"
   become_user: "{{ username }}"
   copy:
-    src: "files/Xresources"
+    src: "templates/Xresources.j2"
     dest: "{{ userhome }}/.Xresources"
     mode: '0755'
+  tags:
+    - configuration
 
 - name: update dotbashrc
   blockinfile:
@@ -21,3 +29,6 @@
           startx
         fi
       fi
+  tags:
+    - configuration
+

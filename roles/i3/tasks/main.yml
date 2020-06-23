@@ -1,0 +1,29 @@
+#
+# ansible role to setup config i3:
+#
+---
+- name: i3 Configuration - create i3 directory
+  become_user: "{{ username }}"
+  file:
+    path: "{{ userhome }}/.config/i3"
+    state: directory
+  tags:
+    - i3
+
+- name: i3 configuration - copy binaries
+  become_user: "{{ username }}"
+  synchronize:
+    src: bin/
+    dest: "{{ userhome }}/.config/i3/bin/"
+    recursive: true
+  tags:
+    - i3
+
+- name: i3 configuration - copy config file
+  become_user: "{{ username }}"
+  template:
+    src: config.j2
+    dest: "{{ userhome }}/.config/i3/config"
+    mode: '0644'
+  tags:
+    - i3

@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# install ubuntu pre-reqs:
 sudo apt -y update && sudo apt -y upgrade
 sudo apt remove lightdm gdm3
 sudo apt-get purge compiz-gnome
@@ -17,5 +17,4 @@ sudo apt remove --purge xdg-user-dirs thunderbird
 sudo add-apt-repository ppa:kgilmer/speed-ricer
 sudo apt-get -y update
 sudo apt-get install -y i3-gaps
-
 

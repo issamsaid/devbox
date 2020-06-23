@@ -1,0 +1,21 @@
+#
+# ansible role to setup user configs:
+#
+---
+- name: user configuration - add sudoers entry for "{{ username }}"
+  lineinfile:
+    path: "/etc/sudoers.d/{{ username }}"
+    line: "{{ username }} ALL=(ALL) NOPASSWD: ALL"
+    create: yes
+    mode: "0640"
+  tags:
+    - configuration
+
+- name: user configuration - copy tmux configuration
+  become_user: "{{ username }}"
+  template:
+    src: tmux.conf.j2
+    dest: "{{ userhome }}/.tmux.conf"
+    mode: '0644'
+  tags:
+    - configuration

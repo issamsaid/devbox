@@ -5,10 +5,13 @@
     username: "{{ username }}" 
     userhome: "{{ userhome }}"
     hostname: "{{ hostname }}"
+    primary: "{{ primary }}"
+    secondary: "{{ secondary }}"
 
-  tasks:
-  - include: playbooks/configure-software-ubuntu.yml
-    when: ansible_facts["os_family"] == "Debian"
-  - include: playbooks/configure-user.yml
-  - include: playbooks/configure-i3.yml
-  - include: playbooks/configure-x.yml
+  roles:
+    - name: software  
+    - name: user
+    - name: dunst
+    - name: i3
+    - name: i3blocks
+    - name: x

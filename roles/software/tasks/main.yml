@@ -1,0 +1,38 @@
+ 
+#
+# ansible playbook to setup install preferred packages:
+#
+---
+- debug:
+    msg: "config for name: {{ username }} home: {{ userhome }}"
+  tags:
+    - msg
+
+- name: gather os specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+      - "{{ ansible_distribution|lower }}-{{ ansible_architecture|lower }}.yml"
+      - "{{ ansible_distribution|lower }}.yml"
+      - "{{ ansible_os_family|lower }}.yml"
+      paths:
+      - ../vars
+      skip: true
+  tags:
+    - software
+
+- name: remove old/undesirable packages
+  package:
+    name: "{{ software_remove_packages }}"
+    state: absent
+  when: software_remove_packages is defined
+  tags:
+    - software
+  
+- name: install extra packages
+  package:
+    name: "{{ software_extra_packages }}"
+    state: present
+  when: software_extra_packages is defined
+  tags:
+    - software

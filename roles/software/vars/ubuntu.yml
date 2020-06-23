@@ -1,0 +1,25 @@
+#
+# list of software to add/remove for ubuntu:
+#
+---
+software_remove_packages:
+  - compiz
+ 
+software_extra_packages:
+  - build-essential
+  - flameshot
+  - imagemagick
+  - ranger
+  - binutils
+  - tmux
+  - rxvt-unicode
+  - imagemagick
+  - fonts-font-awesome
+  - feh
+  - compton
+  - conky
+  - rofi
+  - nitrogen
+  - dunst
+  - i3blocks
+    
