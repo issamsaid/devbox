@@ -19,18 +19,22 @@
   tags:
     - i3
 
-- name: i3 configuration - copy bg
+- name: i3 configuration - copy bgs
   become_user: "{{ username }}"
   copy:
-    src: colors.png
+    src: "{{ item }}"
     dest: "{{ userhome }}/.config/i3/"
+  with_items:
+    - colors.png
+    - lock.png
+    - logo.png
   tags:
     - i3
 
 - name: i3 configuration - copy config files
   become_user: "{{ username }}"
   template:
-    src: {{ item }}.j2
+    src: "{{ item }}.j2"
     dest: "{{ userhome }}/.config/i3/{{ item }}"
     mode: '0644'
   with_items:

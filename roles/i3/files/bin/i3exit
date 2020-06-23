@@ -3,7 +3,7 @@
 
 case "$1" in
     lock)
-        blurlock
+        ~/.config/i3/bin/blurlock
         ;;
     logout)
         i3-msg exit
@@ -12,10 +12,10 @@ case "$1" in
         dm-tool switch-to-greeter
         ;;
     suspend)
-        blurlock && systemctl suspend
+        ~/.config/i3/bin/blurlock && systemctl suspend
         ;;
     hibernate)
-        blurlock && systemctl hibernate
+        ~/.config/i3/bin/blurlock && systemctl hibernate
         ;;
     reboot)
         systemctl reboot

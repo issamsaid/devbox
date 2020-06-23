@@ -5,7 +5,8 @@ sudo apt -y remove lightdm gdm3
 sudo apt -y purge compiz-gnome
 sudo apt -y autoremove 
 
-sudo apt -y install git python python3 curl i3 i3blocks python-pip python3-pip 
+sudo apt -y install git python python3 curl python-pip python3-pip 
+sudo apt -y install git i3 i3lock i3blocks
 sudo apt -y remove --purge ansible 
 sudo -H pip uninstall -q ansible > /dev/null
 sudo -H pip3 uninstall -q ansible > /dev/null
