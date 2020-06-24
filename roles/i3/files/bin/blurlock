@@ -11,7 +11,7 @@
 i3lock -i ~/.config/i3/blured_colors.png
 
 # sleep 1 adds a small delay to prevent possible race conditions with suspend
-sleep 1
+sleep 5
 
 xset dpms force off
 
