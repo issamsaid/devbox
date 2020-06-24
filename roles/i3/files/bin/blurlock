@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # take screenshot
-import -window root /tmp/screenshot.png
+#import -window root /tmp/screenshot.png
 
 # blur it
-convert /tmp/screenshot.png -blur 0x12 /tmp/screenshotblur.png
-rm /tmp/screenshot.png
+#convert /tmp/screenshot.png -blur 0x12 /tmp/screenshotblur.png
+#rm /tmp/screenshot.png
 
 # lock the screen
-i3lock -i /tmp/screenshotblur.png
+i3lock -i ~/.config/i3/blured_colors.png
 
 # sleep 1 adds a small delay to prevent possible race conditions with suspend
 sleep 1

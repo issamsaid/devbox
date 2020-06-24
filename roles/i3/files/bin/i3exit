@@ -1,5 +1,4 @@
 #!/bin/sh
-# /usr/bin/i3exit
 
 case "$1" in
     lock)
@@ -25,7 +24,7 @@ case "$1" in
         ;;
     *)
         echo "== ! i3exit: missing or invalid argument ! =="
-        echo "Try again with: lock | logout | switch_user | suspend | hibernate | reboot | shutdown"
+        echo "Try again with: lock | logout | switch_user | suspend | hibernate | reboot | poweroff"
         exit 2
 esac
 

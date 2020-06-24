@@ -26,6 +26,7 @@
     dest: "{{ userhome }}/.config/i3/"
   with_items:
     - colors.png
+    - blured_colors.png
     - lock.png
     - logo.png
   tags:
