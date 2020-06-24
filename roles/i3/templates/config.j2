@@ -57,10 +57,10 @@ bindsym $mod+q workspace back_and_forth
 # Border toggle
 bindsym $mod+x border toggle
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -315,12 +315,14 @@ exec --no-startup-id ~/.config/i3/bin/redshift
 exec --no-startup-id openpgp-applet
 # exec --no-startup-id setxkbmap -layout us -option ctrl:nocaps
 
-# lock/suspend screen
+# lock/suspend/poweroff computer
 bindsym --release XF86ScreenSaver     exec ~/.config/i3/bin/i3exit lock
 bindsym --release $mod+Delete         exec ~/.config/i3/bin/i3exit lock
-bindsym --release $mod+s              exec ~/.config/i3/bin/i3exit suspend
-bindsym --release $mod+Mod1+l         exec ~/.config/i3/bin/i3exit lock
 bindsym --release control+Mod1+Delete exec ~/.config/i3/bin/i3exit lock
+bindsym --release $mod+Mod1+l         exec ~/.config/i3/bin/i3exit lock
+bindsym --release $mod+l              exec ~/.config/i3/bin/i3exit lock
+bindsym --release $mod+s              exec ~/.config/i3/bin/i3exit suspend
+bindsym --release $mod+p              exec ~/.config/i3/bin/i3exit poweroff
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 3%+
