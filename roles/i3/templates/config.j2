@@ -394,9 +394,17 @@ assign [class="Chromium-browser" instance="teams.microsoft.com"] number "4 $tag4
 assign [class="Chromium-browser" instance="app.slack.com"] number "5 $tag5"
 assign [class="Code" instance="code"] number "1 $tag1" 
 
-# launch the initial apps:
+# assign classes/workspaces to outputs:
 exec i3-msg workspace 1 $tag1
-for_window [class="code"] move container to output {{ primary }}
+for_window [class="Code"] move container to output {{ primary }}
 for_window [class="URxvt"] move container to output {{ secondary }}
+
+for_window [workspace=2] move workspace to output {{ primary }} 
+for_window [workspace=3] move workspace to output {{ primary }} 
+for_window [workspace=4] move workspace to output {{ primary }} 
+for_window [workspace=5] move workspace to output {{ primary }} 
+for_window [workspace=6] move workspace to output {{ primary }} 
+
+# launch the initial apps:
 exec urxvt -name "initial_urxvt"
 exec code-oss
