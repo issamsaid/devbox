@@ -407,7 +407,6 @@ assign [class="URxvt"]                number "1 $tag1"
 exec i3-msg workspace 1 $tag1
 for_window [title="initial_urxvt"] move container to output {{ primary }}
 for_window [class="Code"] move container to output {{ secondary }}
-for_window [class="URxvt"] move container to output {{ primary }}
 
 # all chrome apps in primary output
 for_window [class="Chromium-browser"] move workspace to output {{ primary }}
