@@ -122,6 +122,13 @@ focus_follows_mouse no
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
+# assign ws to output:
+workspace 2 output {{ primary }} 
+workspace 3 output {{ primary }} 
+workspace 4 output {{ primary }} 
+workspace 5 output {{ primary }} 
+workspace 6 output {{ primary }} 
+
 # switch to workspace
 bindsym $mod+1 workspace number 1 $tag1
 bindsym $mod+2 workspace number 2 $tag2
@@ -398,12 +405,6 @@ assign [class="Code" instance="code"] number "1 $tag1"
 exec i3-msg workspace 1 $tag1
 for_window [class="Code"] move container to output {{ primary }}
 for_window [class="URxvt"] move container to output {{ secondary }}
-
-for_window [workspace=2] move workspace to output {{ primary }} 
-for_window [workspace=3] move workspace to output {{ primary }} 
-for_window [workspace=4] move workspace to output {{ primary }} 
-for_window [workspace=5] move workspace to output {{ primary }} 
-for_window [workspace=6] move workspace to output {{ primary }} 
 
 # launch the initial apps:
 exec urxvt -name "initial_urxvt"
