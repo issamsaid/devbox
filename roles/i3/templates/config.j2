@@ -392,11 +392,11 @@ assign [class="Chromium-browser" instance="chromium-browser"] number "2 $tag2"
 assign [class="Chromium-browser" instance="outlook.office.com"] number "3 $tag3"
 assign [class="Chromium-browser" instance="teams.microsoft.com"] number "4 $tag4"
 assign [class="Chromium-browser" instance="app.slack.com"] number "5 $tag5"
-assign [class="Code" instance="code"] output {{ primary }} number "1 $tag1" 
+assign [class="Code" instance="code"] number "1 $tag1" 
 
 # launch the initial apps:
 exec i3-msg workspace 1 $tag1
-for_window [title="initial_urxvt"] move container to output {{ secondary }}
 for_window [class="code"] move container to output {{ primary }}
-exec code-oss
+for_window [class="URxvt"] move container to output {{ secondary }}
 exec urxvt -name "initial_urxvt"
+exec code-oss
