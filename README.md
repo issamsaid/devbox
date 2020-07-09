@@ -1,7 +1,7 @@
 credits to https://github.com/justmeandopensource/myi3
 
-# i3
-Configure a development env with i3.
+# devbox
+Configure a development env based on i3.
 
 ## How to run it
 #### Install Pre-reqs
