@@ -1,0 +1,15 @@
+#
+# ansible role to setup vim configs:
+#
+---
+- name: vim configuration - copy files
+  become_user: "{{ username }}"
+  synchronize:
+    src: vimrc/
+    dest: "~/.vim_runtime/"
+  tags:
+    - vim
+
+- name: vim configuration - install the envirenment
+  become_user: "{{ username }}"
+  shell: "~/.vim_runtime/install_awesome_vimrc.sh"
