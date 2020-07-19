@@ -16,3 +16,4 @@
     - name: i3blocks
     - name: x
     - name: vim
+    - name: devtools
