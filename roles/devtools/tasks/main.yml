@@ -4,41 +4,17 @@
     path: /etc/nv_tegra_release                                             
   register: is_jetson                                                       
                                                                                  
-- name: activate 6 cores if is jetson
-  shell: /usr/sbin/nvpmodel -m 2 
-  when:                                                                     
-    - is_jetson.stat.exists == true 
+- include: jetson.yml
+  when: is_jetson.stat.exists 
 
- #- name: disable network services
- #service:
- #   name: "{{ item }}"
- #   state: stopped
- #   enabled: no
- # loop:
- #   - resolvconf
- #   - systemd-resolved
- #   - network-manager
+- name: install devtools packages
+  apt:
+    name: {{ item }}
+    state: present
+  with_items:
+    - wget
+    - curl
+    - apt-transport-https
  
-- name: add code-oss source to apt lists
-  become: true
-  copy:
-    src: swift-arm_vscode.list
-    dest: /etc/apt/sources.list.d/
-  when:                                                                     
-    - is_jetson.stat.exists == true 
+- include: vscode-{{ ansible_distribution|lower }}-{{ ansible_architecture|lower }}
 
-- name: apt-get update
-  apt:
-    update_cache: yes
-  when:                                                                     
-    - is_jetson.stat.exists == true 
-#  apt_repository:
-#    repo: deb [arch=arm64] https://packagecloud.io/headmelted/codebuilds/debian stretch main
-#    state: present
-#    filename: headmelted_codebuilds
-
-- name: install code-oss
-  apt:
-    name: code-oss
-  when:                                                                     
-    - is_jetson.stat.exists == True 

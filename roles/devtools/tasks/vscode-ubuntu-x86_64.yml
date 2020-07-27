@@ -1,0 +1,16 @@
+---
+- name: add an apt signing key
+  apt_key:
+    url: https://packagecloud.io/swift-arm/vscode/gpgkey
+    state: present
+
+- name: add code microsoft source to apt list
+  apt_repository:
+    repo: deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main
+    state: present
+    update_cache: yes
+    filename: vscode
+
+- name: install code
+  apt:
+    name: code

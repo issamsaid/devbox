@@ -1,0 +1,25 @@
+---
+- name: download the code-oss apt key
+  get_url:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    dest: /tmp/vscode.key
+  become: true
+
+- name: add the key to apt
+  apt_key:
+    file: /tmp/vscode.key
+    state: present
+  become: true
+
+- name: add code-oss source to apt lists
+  apt_repository:
+    #repo: deb [arch=arm64] https://packagecloud.io/headmelted/codebuilds/debian stretch main
+    repo: deb [arch=arm64] https://packagecloud.io/swift-arm/vscode/ubuntu/ bionic main
+    state: present
+    update_cache: yes
+    filename: swift-arm_vscode 
+    #filename: headmelted_codebuilds
+    
+- name: install code-oss
+  apt:
+    name: code-oss
