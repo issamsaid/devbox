@@ -19,3 +19,14 @@
     mode: '0644'
   tags:
     - configuration
+
+- name: remove xdg-user-dirs defaults
+  copy:
+    src: user-dirs.defaults 
+    dest: /etc/xdg
+    owner: root
+    group: root
+    mode: 0644
+    force: yes
+  tags:
+    - configuration

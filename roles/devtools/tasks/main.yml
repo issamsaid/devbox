@@ -1,20 +1,17 @@
 ---
-- name: check if jetson                                           
-  stat:                                                                     
-    path: /etc/nv_tegra_release                                             
-  register: is_jetson                                                       
+#- stat:
+#    path: /etc/nv_tegra_release
+#  register: is_jetson                                                       
                                                                                  
 - include: jetson.yml
-  when: is_jetson.stat.exists 
+  # when: is_jetson.stat.exists 
 
 - name: install devtools packages
   apt:
-    name: {{ item }}
-    state: present
-  with_items:
-    - wget
-    - curl
-    - apt-transport-https
+    pkg:
+      - wget
+      - curl
+      - apt-transport-https
  
-- include: vscode-{{ ansible_distribution|lower }}-{{ ansible_architecture|lower }}
+- include: vscode-{{ ansible_distribution|lower }}-{{ ansible_architecture|lower }}.yml
 

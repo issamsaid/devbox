@@ -32,15 +32,23 @@
   tags:
     - i3
 
-- name: i3 configuration - copy config files
+- name: i3 configuration - copy extra configs
   become_user: "{{ username }}"
   template:
     src: "{{ item }}.j2"
     dest: "{{ userhome }}/.config/i3/{{ item }}"
     mode: '0644'
   with_items:
-    - config
     - i3status.conf
     - i3blocks.conf
   tags:
     - i3
+
+- name: i3 configuration - copy main config file
+  become_user: "{{ username }}"
+  template:
+    src: "config-{{ ansible_distribution|lower }}-{{ ansible_architecture|lower }}.j2"
+    dest: "{{ userhome }}/.config/i3/config"
+    mode: '0644'
+  tags:
+    -  i3

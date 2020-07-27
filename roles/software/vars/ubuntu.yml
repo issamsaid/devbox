@@ -22,4 +22,5 @@ software_extra_packages:
   - nitrogen
   - dunst
   - i3blocks
+  - chromium-browser
     
