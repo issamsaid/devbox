@@ -5,7 +5,7 @@
 - name: upload xinitrc
   become_user: "{{ username }}"
   template:
-    src: "templates/xinitrc.j2"
+    src: "xinitrc.j2"
     dest: "{{ userhome }}/.xinitrc"
     mode: '0755'
   tags:
@@ -13,8 +13,8 @@
 
 - name: X configuration - Copy "{{ userhome }}/.Xresources"
   become_user: "{{ username }}"
-  copy:
-    src: "templates/Xresources.j2"
+  template:
+    src: "Xresources.j2"
     dest: "{{ userhome }}/.Xresources"
     mode: '0755'
   tags:
