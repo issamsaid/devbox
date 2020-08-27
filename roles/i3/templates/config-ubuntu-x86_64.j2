@@ -400,8 +400,9 @@ assign [class="Chromium-browser" instance="outlook.office.com"]  number "3 $tag3
 assign [class="Chromium-browser" instance="teams.microsoft.com"] number "4 $tag4"
 assign [class="Chromium-browser" instance="app.slack.com"]       number "5 $tag5"
 
-assign [class="Code" instance="code"] number "1 $tag1" 
-assign [class="URxvt"]                number "1 $tag1"
+#assign [class="Code" instance="code"] number "1 $tag1" 
+assign [class="Code" ] number "1 $tag1" 
+assign [class="URxvt"] number "1 $tag1"
 
 # assign classes/workspaces to outputs
 exec i3-msg workspace 1 $tag1
